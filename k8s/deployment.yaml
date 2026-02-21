@@ -14,6 +14,6 @@ metadata:
       spec:
         containers:
           - name: pr-review-app
-              image: sanket8work-art/pr-review-system:latest
+              image: sanket8work-art/pr-review-system:${{github.sha}}
               ports:
                 - containerPort: 5000

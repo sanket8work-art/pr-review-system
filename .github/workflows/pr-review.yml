@@ -28,5 +28,10 @@ jobs:
           host: ${{secrets.SERVER_HOST}}
           username: ${{secrets.SERVER_USERNAME}}
           key: ${{secrets.SSH_PRIVATE_KEY}}
- 
+          script: |
+            docker pull ${{secrets.DOCKERHUB_USERNAME}}/pr-review-system:${{github.sha}}
+            docker images
+            docker stop pr-review-system|| true
+            docker rm pr-review-system || true
+            docker run -d -p 80:5000 --name pr-review-system ${{secrets.DOCKERHUB_USERNAME}}/pr-review-system:${{github.sha}}
         
