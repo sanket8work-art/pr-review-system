@@ -33,5 +33,5 @@ jobs:
             docker images
             docker stop pr-review-system|| true
             docker rm pr-review-system || true
-            docker run -d -p 80:80 --name pr-review-system ${{secrets.DOCKERHUB_USERNAME}}/pr-review-system:${{github.sha}}
+            docker run -d -p 80:5000 --name pr-review-system ${{secrets.DOCKERHUB_USERNAME}}/pr-review-system:${{github.sha}}
         
