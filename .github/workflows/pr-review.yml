@@ -29,9 +29,9 @@ jobs:
           username: ${{secrets.SERVER_USERNAME}}
           key: ${{secrets.SSH_PRIVATE_KEY}}
           script: |
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/myapp:latest
-            docker stop myapp || true
-            docker rm myapp || true
-            docker run -d -p 80:80 --name myapp ${{ secrets.DOCKERHUB_USERNAME }}/myapp:latest
+            docker pull ${{secrets.DOCKERHUB_USERNAME}}/pr-reivew-system:latest
+            docker stop pr-reivew-system|| true
+            docker rm pr-reivew-system || true
+            docker run -d -p 80:80 --name myapp ${{secrets.DOCKERHUB_USERNAME}}/pr-reivew-system:latest
  
         
