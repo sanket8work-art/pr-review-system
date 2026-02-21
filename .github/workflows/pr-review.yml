@@ -8,6 +8,5 @@ jobs:
   steps:
       - name: Check out code
         uses: actions/checkout@v3
-
       - name: Build the Docker image
         run: docker build -f Dockerfile -t my-image-name:$(date +%s) .
