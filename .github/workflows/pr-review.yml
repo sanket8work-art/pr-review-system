@@ -29,10 +29,10 @@ jobs:
           username: ${{secrets.SERVER_USERNAME}}
           key: ${{secrets.SSH_PRIVATE_KEY}}
           script: |
-            docker pull ${{secrets.DOCKERHUB_USERNAME}}/pr-reivew-system:${{github.sha}}
+            docker pull ${{secrets.DOCKERHUB_USERNAME}}/pr-review-system:${{github.sha}}
             docker images
-            docker stop pr-reivew-system|| true
-            docker rm pr-reivew-system || true
-            docker run -d -p 80:80 --name myapp ${{secrets.DOCKERHUB_USERNAME}}/pr-reivew-system:${{github.sha}}
+            docker stop pr-review-system|| true
+            docker rm pr-review-system || true
+            docker run -d -p 80:80 --name myapp ${{secrets.DOCKERHUB_USERNAME}}/pr-review-system:${{github.sha}}
  
         
