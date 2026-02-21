@@ -28,5 +28,10 @@ jobs:
           host: ${{secrets.SERVER_HOST}}
           username: ${{secrets.SERVER_USERNAME}}
           key: ${{secrets.SSH_PRIVATE_KEY}}
+          script: |
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/myapp:latest
+            docker stop myapp || true
+            docker rm myapp || true
+            docker run -d -p 80:80 --name myapp ${{ secrets.DOCKERHUB_USERNAME }}/myapp:latest
  
         
