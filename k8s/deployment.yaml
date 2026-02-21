@@ -1,1 +1,19 @@
-#deployment
+apiVersion: app/v1
+kind: Deployment
+metadata:
+  name: pr-review-app-deployment
+  spec:
+    replicas: 1
+    selector:
+      matchLables:
+        app: pr-review-app
+    tenplate:
+      metadata:
+        lables:
+          app: pr-review-app
+      spec:
+        containers:
+          - name: pr-review-app
+              image: sanket8work-art/pr-review-system:latest
+              ports:
+                - containerPort: 5000
